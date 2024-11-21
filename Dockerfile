@@ -11,6 +11,7 @@ ARG GID=101
 USER root
 RUN apt-get install -y --no-install-recommends \
     nginx-module-njs \
+    nginx-mod-http-js \
     && rm -rf /var/lib/apt/lists/*
 
 ## forward request and error logs to docker log collector
