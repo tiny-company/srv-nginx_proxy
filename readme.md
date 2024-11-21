@@ -2,7 +2,9 @@
 
 ## Description
 
-Simple nginx ssl proxy docker image mainly use to protect http request using ssl.
+Simple nginx ssl proxy docker image that contain "nginx-module-njs" package (in order to import nginx modules) mainly use to protect http request using ssl certificate (https).
+
+🐳 Image is build anb pushed to dockerhub at [nginx_proxy](https://hub.docker.com/repository/docker/tinycompany/nginx_proxy/general)
 
 ## Prerequisites
 
