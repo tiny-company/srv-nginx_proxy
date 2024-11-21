@@ -9,7 +9,8 @@ ARG GID=101
 
 ## install modules with apt
 USER root
-RUN apt-get install -y \
+ARG NJS_PACKAGE_VERSION=1.24.0
+RUN apt-get install -y --no-install-recommends \
     nginx-module-njs \
     && rm -rf /var/lib/apt/lists/*
 
