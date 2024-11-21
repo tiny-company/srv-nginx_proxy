@@ -11,12 +11,15 @@ ARG GID=101
 USER root
 RUN apt-get install -y --no-install-recommends \
     nginx-module-njs \
-    nginx-mod-http-js \
     && rm -rf /var/lib/apt/lists/*
 
 ## forward request and error logs to docker log collector
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log
+
+## fix log file access rights to non root user
+RUN chown ${UID}:${GID} /var/log/nginx/access.log \
+    && chown ${UID}:${GID} /var/log/nginx/error.log
 
 USER $UID
 
